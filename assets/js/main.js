@@ -100,31 +100,32 @@ btnEl.addEventListener("click", function () {
             //quando clicco sulla casella si mette e toglie la classe active
             
             cellEl.addEventListener("click", function(){
-                console.log(this.innerText);
+                //console.log(this.innerText);
                 const cellInternalNumber = Number(this.innerText);
-                console.log(cellInternalNumber);
+                //console.log(cellInternalNumber);
                 const boolean = generatedBombs.includes(cellInternalNumber);
-                console.log(generatedBombs);
-                console.log(boolean);
+                //console.log(generatedBombs);
+                //console.log(boolean);
                 if (boolean) {
                     cellEl.classList.add("lose")
-                    console.log("sono dentro all'if");
+                    //console.log("sono dentro all'if");
                     scoreEl.innerHTML = 'Il tuo punteggio è di: ' 
                 }else{
                     cellEl.classList.toggle("active")
-                    console.log("sono dentro all'else");
+                    //console.log("sono dentro all'else");
                 }
-                console.log([i]);
+                //console.log([i]);
 
-                //counter
-                let count = 0
-                cellEl.onclick = function(){
-                count += 1
-                return count
-                }
-
-                console.log(count);
                 
+
+            })
+
+            //counter
+            let count = 0;
+            cellEl.addEventListener("click", function(){
+            count += 1
+            console.log(count);
+            
             })
             
         }
