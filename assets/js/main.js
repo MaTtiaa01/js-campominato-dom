@@ -54,6 +54,7 @@ btnEl.addEventListener("click", function () {
 
     //svuoto la griglia
     containerEL.innerHTML = "";
+    scoreEl.innerHTML = "";
 
     let difficulty = document.querySelector("select").value;
     console.log(difficulty);
