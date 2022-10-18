@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col_10{
+    width: calc(100% / 10) ;
+}
+
+.col_9{
+    width: calc(100% / 9);
+}
+
+.col_7{
+    width: calc(100% / 7);
+}
+
+.container .cell{
+    
+    aspect-ratio: 1/1;
+    border: 2px solid white;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active{
+    background-color: aqua;
+}
