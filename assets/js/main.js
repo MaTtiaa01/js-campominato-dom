@@ -61,17 +61,17 @@ btnEl.addEventListener("click", function () {
     if (difficulty === "difficoltà_1") {
         startNumb = 1;
         gridSize = 100;
-        let generatedBombs = generateRandomBomb(startNumb,gridSize);
+        generatedBombs = generateRandomBomb(startNumb,gridSize);
         console.log(generatedBombs);
     }else if (difficulty === "difficoltà_2") {
         startNumb = 2;
         gridSize = 81;
-        let generatedBombs = generateRandomBomb(startNumb,gridSize);
+        generatedBombs = generateRandomBomb(startNumb,gridSize);
         console.log(generatedBombs);
     }else{
         startNumb = 3;
         gridSize = 49;
-        let generatedBombs = generateRandomBomb(startNumb,gridSize);
+        generatedBombs = generateRandomBomb(startNumb,gridSize);
         console.log(generatedBombs);
     }
 
@@ -103,6 +103,7 @@ btnEl.addEventListener("click", function () {
                 const cellInternalNumber = Number(this.innerText);
                 console.log(cellInternalNumber);
                 const boolean = generatedBombs.includes(cellInternalNumber);
+                console.log(generatedBombs);
                 console.log(boolean);
                 if (boolean) {
                     cellEl.classList.add("lose")
@@ -150,9 +151,7 @@ function generateRandomBomb(min,max) {
 }
 
 
-function clickCounter() {
-    const counter = count;
-}
+
 
 
 
