@@ -14,6 +14,21 @@
 //e emetto un messaggio in console con il numero della cella cliccata.
   //utilizzo this
 
+  // Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe.
+    //uso Math.random e creo una funzione che posso richimare 
+    
+//   Attenzione:
+//   **nella stessa cella può essere posizionata al massimo una bomba, perciò nell’array delle bombe non potranno esserci due numeri uguali.
+    //creo un array vuoto
+    //uso un ciclo while per generare e pushare i numeri all'interno dell'array
+    //per far si che non si ripetano utilizzo if
+    //se non è presente lo pusho altrimenti non faccio niente e continuo il ciclo
+
+//   In seguito l'utente clicca su una cella: se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba - la cella si colora di rosso e la partita termina. 
+//   Altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
+//   La partita termina quando il giocatore clicca su una bomba o quando raggiunge il numero massimo possibile di numeri consentiti (ovvero quando ha rivelato tutte le celle che non sono bombe).
+//   Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba.
+
  /**  Bonus
   Aggiungere una select accanto al bottone di generazione, che fornisca una scelta tra tre diversi livelli di difficoltà:
   con difficoltà 1 => 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
@@ -33,7 +48,9 @@ let gridSize = 100;
 
 btnEl.addEventListener("click", function () {
 
-    
+    //svuoto la griglia
+    containerEL.innerHTML = "";
+
     let difficulty = document.querySelector("select").value;
     console.log(difficulty);
 
@@ -81,3 +98,7 @@ createGrid(startNumb,gridSize);
 
     
 })
+
+function generateRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+  }
