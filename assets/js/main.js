@@ -92,9 +92,9 @@ btnEl.addEventListener("click", function () {
         }
         
     }
-    
-createGrid(startNumb,gridSize);
 
+    createGrid(startNumb,gridSize);
+    
 
     
 })
@@ -102,3 +102,20 @@ createGrid(startNumb,gridSize);
 function generateRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
   }
+
+
+function generateRandomBomb() {
+    const bombs = [];
+    while (bombs.length !== 16) {
+        const randomBombsNumb = generateRandomNumber(1,16);
+        if (!bombs.includes(randomBombsNumb)) {
+        bombs.push(randomBombsNumb)
+       }
+       
+    }
+
+    return bombs
+}
+
+const generatedBombs = generateRandomBomb()
+console.log(generatedBombs);
