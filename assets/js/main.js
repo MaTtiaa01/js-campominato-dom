@@ -44,8 +44,8 @@ const btnEl = document.querySelector("button");
 const containerEL = document.querySelector(".container");
 let startNumb = 1;
 let gridSize = 100;
-const scoreEl = document.querySelector("p.score")
-
+const scoreEl = document.querySelector("span.score")
+let generatedBombs = [];
 btnEl.addEventListener("click", function () {
 
     //svuoto la griglia
@@ -57,17 +57,17 @@ btnEl.addEventListener("click", function () {
     if (difficulty === "difficoltà_1") {
         startNumb = 1;
         gridSize = 100;
-        const generatedBombs = generateRandomBomb(startNumb,gridSize);
+        let generatedBombs = generateRandomBomb(startNumb,gridSize);
         console.log(generatedBombs);
     }else if (difficulty === "difficoltà_2") {
         startNumb = 2;
         gridSize = 81;
-        const generatedBombs = generateRandomBomb(startNumb,gridSize);
+        let generatedBombs = generateRandomBomb(startNumb,gridSize);
         console.log(generatedBombs);
     }else{
         startNumb = 3;
         gridSize = 49;
-        const generatedBombs = generateRandomBomb(startNumb,gridSize);
+        let generatedBombs = generateRandomBomb(startNumb,gridSize);
         console.log(generatedBombs);
     }
 
@@ -91,12 +91,14 @@ btnEl.addEventListener("click", function () {
     
             //quando clicco sulla casella si mette e toglie la classe active
             cellEl.addEventListener("click", function(){
-                if ( generatedBombs.includes(this.innerText)) {
+                console.log(this.innerText);
+                if (generatedBombs.includes(this.innerText)) {
                     cellEl.classList.add("lose")
-
+                    console.log("sono dentro all'if");
+                    scoreEl.innerHTML = 'Il tuo punteggio è di ' //forse utilizza un counter e forse bisogna farlo fuori dal ciclo
                 }else{
                     cellEl.classList.toggle("active")
-
+                    console.log("sono dentro all'else");
                 }
                 console.log([i]);
             })
@@ -105,9 +107,6 @@ btnEl.addEventListener("click", function () {
     }
 
     createGrid(startNumb,gridSize);
-    
-
-    
 })
 
 function generateRandomNumber(min, max) {
@@ -122,9 +121,7 @@ function generateRandomBomb(min,max) {
         if (!bombs.includes(randomBombsNumb)) {
         bombs.push(randomBombsNumb)
        }
-       
     }
-
     return bombs;
 }
 
