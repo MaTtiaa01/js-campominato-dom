@@ -46,6 +46,10 @@ let startNumb = 1;
 let gridSize = 100;
 const scoreEl = document.querySelector("span.score")
 let generatedBombs = [];
+let count;
+
+
+
 btnEl.addEventListener("click", function () {
 
     //svuoto la griglia
@@ -80,6 +84,9 @@ btnEl.addEventListener("click", function () {
             //console.log(cellEl);
             containerEL.insertAdjacentElement("beforeend",cellEl);
 
+            
+        
+
             //in base alla difficoltà si forma la griglia
             if (difficulty === "difficoltà_1") {
                 cellEl.classList.add('col_10');
@@ -100,14 +107,26 @@ btnEl.addEventListener("click", function () {
                 if (boolean) {
                     cellEl.classList.add("lose")
                     console.log("sono dentro all'if");
-                    scoreEl.innerHTML = 'Il tuo punteggio è di: ' //forse utilizza un counter e forse bisogna farlo fuori dal ciclo
+                    scoreEl.innerHTML = 'Il tuo punteggio è di: ' 
                 }else{
                     cellEl.classList.toggle("active")
                     console.log("sono dentro all'else");
                 }
                 console.log([i]);
+
+                //counter
+                let count = 0
+                cellEl.onclick = function(){
+                count += 1
+                return count
+                }
+
+                console.log(count);
+                
             })
+            
         }
+        
         
     }
 
@@ -130,6 +149,10 @@ function generateRandomBomb(min,max) {
     return bombs;
 }
 
+
+function clickCounter() {
+    const counter = count;
+}
 
 
 
