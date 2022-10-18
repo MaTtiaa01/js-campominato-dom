@@ -38,3 +38,7 @@ body{
 .active{
     background-color: aqua;
 }
+
+.lose {
+    background-color: red;
+}

@@ -44,7 +44,7 @@ const btnEl = document.querySelector("button");
 const containerEL = document.querySelector(".container");
 let startNumb = 1;
 let gridSize = 100;
-
+const scoreEl = document.querySelector("p.score")
 
 btnEl.addEventListener("click", function () {
 
@@ -57,13 +57,18 @@ btnEl.addEventListener("click", function () {
     if (difficulty === "difficoltà_1") {
         startNumb = 1;
         gridSize = 100;
-        
+        const generatedBombs = generateRandomBomb(startNumb,gridSize);
+        console.log(generatedBombs);
     }else if (difficulty === "difficoltà_2") {
         startNumb = 2;
         gridSize = 81;
+        const generatedBombs = generateRandomBomb(startNumb,gridSize);
+        console.log(generatedBombs);
     }else{
         startNumb = 3;
         gridSize = 49;
+        const generatedBombs = generateRandomBomb(startNumb,gridSize);
+        console.log(generatedBombs);
     }
 
     function createGrid(min, max) {
@@ -86,7 +91,13 @@ btnEl.addEventListener("click", function () {
     
             //quando clicco sulla casella si mette e toglie la classe active
             cellEl.addEventListener("click", function(){
-                cellEl.classList.toggle("active")
+                if ( generatedBombs.includes(this.innerText)) {
+                    cellEl.classList.add("lose")
+
+                }else{
+                    cellEl.classList.toggle("active")
+
+                }
                 console.log([i]);
             })
         }
@@ -104,18 +115,20 @@ function generateRandomNumber(min, max) {
   }
 
 
-function generateRandomBomb() {
+function generateRandomBomb(min,max) {
     const bombs = [];
     while (bombs.length !== 16) {
-        const randomBombsNumb = generateRandomNumber(1,16);
+        const randomBombsNumb = generateRandomNumber(min,max);
         if (!bombs.includes(randomBombsNumb)) {
         bombs.push(randomBombsNumb)
        }
        
     }
 
-    return bombs
+    return bombs;
 }
 
-const generatedBombs = generateRandomBomb()
-console.log(generatedBombs);
+
+
+
+
