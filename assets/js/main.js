@@ -46,7 +46,7 @@ let startNumb = 1;
 let gridSize = 100;
 const scoreEl = document.querySelector("span.score")
 let generatedBombs = [];
-let count;
+let count = 0;
 
 
 
@@ -109,24 +109,18 @@ btnEl.addEventListener("click", function () {
                 if (boolean) {
                     cellEl.classList.add("lose")
                     //console.log("sono dentro all'if");
-                    scoreEl.innerHTML = 'Il tuo punteggio è di: ' 
+                    containerEL.innerHTML = "GAME OVER"
+                    scoreEl.innerHTML = 'Il tuo punteggio è di: ' + count;
                 }else{
                     cellEl.classList.toggle("active")
+                    count++
                     //console.log("sono dentro all'else");
                 }
                 //console.log([i]);
 
-                
-
             })
 
-            //counter
-            let count = 0;
-            cellEl.addEventListener("click", function(){
-            count += 1
-            console.log(count);
             
-            })
             
         }
         
@@ -134,6 +128,14 @@ btnEl.addEventListener("click", function () {
     }
 
     createGrid(startNumb,gridSize);
+
+    // //counter
+    // let count = 0;
+    // cellEl.addEventListener("click", function(){
+    // count += 1
+    // console.log(count);
+    
+    // })
 })
 
 function generateRandomNumber(min, max) {
